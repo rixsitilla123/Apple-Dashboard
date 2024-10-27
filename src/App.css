@@ -1,0 +1,71 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root{
+	--color: #9fa838;
+}
+
+.ant-btn{
+	background-color: var(--color) !important;
+}
+
+.ant-scroll-number{
+	background-color: var(--color) !important;
+}
+
+.ant-menu-item-selected{
+	background-color: var(--color) !important;
+}
+
+.ant-select-selector{
+	width: 200px !important;
+}
+
+.ant-spin-dot-holder{
+	color:  var(--color) !important;
+}
+
+.ant-input-affix-wrapper:hover{
+	border: 1px solid var(--color) !important;
+}
+
+.ant-input-affix-wrapper:focus{
+	border: 1px solid var(--color) !important;
+}
+
+.ant-input-affix-wrapper-focused{
+	border: 1px solid var(--color) !important;
+	box-shadow: 0, 0, 0, 2, var(--color) !important;
+}
+
+.ant-input-outlined:focus{
+	border: 1px solid var(--color) !important;
+	box-shadow: 0, 0, 0, 2, var(--color) !important;
+}
+
+
+/* select hover */
+/* .ant-select-selector:hover{
+	border: 1px solid var(--color) !important;
+}
+
+.ant-select-selector:focus{
+	border: 1px solid var(--color) !important;
+}
+
+
+.ant-select-outlined:focus{
+	border: 1px solid var(--color) !important;
+	box-shadow: 0, 0, 0, 2, var(--color) !important;
+}
+
+.ant-select-focused:hover{
+	border: 1px solid var(--color) !important;
+}
+
+.ant-select-focused:focus{
+	border: 1px solid var(--color) !important;
+	box-shadow: 0, 0, 0, 2, var(--color) !important;
+} */
+
