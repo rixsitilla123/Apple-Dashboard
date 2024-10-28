@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from 'react'
-import PageAddInfo from '../components/PageAddInfo'
 import { Input, Select, Switch } from 'antd'
-import CustomTable from '../components/CustomTable'
-import { HTTP } from '../hook/useEnv';
-import axios from 'axios';
-import useDebounce from '../hook/useDebounce'
 import { DashOutlined, DeleteOutlined, EditOutlined } from '@ant-design/icons';
+import axios from 'axios';
+import { HTTP } from '../hook/useEnv';
+import useDebounce from '../hook/useDebounce'
+import PageAddInfo from '../components/PageAddInfo'
+import CustomTable from '../components/CustomTable'
 
 function Organization() {
 	const [tBodyData, setTBodyData] = useState([])
@@ -45,15 +45,13 @@ function Organization() {
 	function handleSearchOrganization(e) {
 		setIsLoading(true)
 		setSearchData(e.target.value.toLowerCase())
-		if(!e.target.value) {
+		if (!e.target.value) {
 			setTimeout(() => setRefresh(!refresh), 1000)
 		}
 	}
-
 	const searchByName = useDebounce(searchData, 1000)
-
 	useEffect(() => {
-		if(searchByName){
+		if (searchByName) {
 			setIsLoading(false)
 			const filteredData = tBodyData.filter(item => item.name.toLowerCase().includes(searchByName))
 			setSearchData(filteredData)
@@ -64,14 +62,14 @@ function Organization() {
 	// axios get all start
 	useEffect(() => {
 		axios(`${HTTP}/organization`).then(res => {
-			setIsLoading(false)	
+			setIsLoading(false)
 			setTBodyData(res.data.map(item => {
 				item.action = <div className="flex items-center gap-[22px]">
-					<EditOutlined className='scale-[1.2] hover:scale-[1.5] duration-500 cursor-pointer hover:text-blue-600'/>
-					<DeleteOutlined className='scale-[1.2] hover:scale-[1.5] duration-500 cursor-pointer hover:text-red-600'/>
-					<DashOutlined className='scale-[1.2] hover:scale-[1.5] duration-500 cursor-pointer hover:text-green-600'/>
+					<EditOutlined className='scale-[1.2] hover:scale-[1.5] duration-500 cursor-pointer hover:text-blue-600' />
+					<DeleteOutlined className='scale-[1.2] hover:scale-[1.5] duration-500 cursor-pointer hover:text-red-600' />
+					<DashOutlined className='scale-[1.2] hover:scale-[1.5] duration-500 cursor-pointer hover:text-green-600' />
 				</div>
-				item.status = <Switch size='small' defaultChecked={JSON.parse(item.status)}/>
+				item.status = <Switch size='small' defaultChecked={JSON.parse(item.status)} />
 				return item
 			}))
 		})
@@ -83,9 +81,9 @@ function Organization() {
 			<PageAddInfo title={"Tashkilotlar"} text={"Tashkilotlar"} count={8} btnTitle={"Qoshish"} />
 			<div className="w-[630px] my-5 flex items-center gap-[30px]">
 				<Input onChange={handleSearchOrganization} allowClear placeholder='Qidirish...' type='text' size='large' />
-				<Select showSearch placeholder="INN Tanlash" optionFilterProp="label" size="large" options={[{value: 'jack', label: 'Jack'}]}/>
+				<Select showSearch placeholder="INN Tanlash" optionFilterProp="label" size="large" options={[{ value: 'jack', label: 'Jack' }]} />
 			</div>
-			<CustomTable isLoading={isLoading} tHead={tHeadData} tBody={tBodyData}/>
+			<CustomTable isLoading={isLoading} tHead={tHeadData} tBody={tBodyData} />
 		</div>
 	)
 }
