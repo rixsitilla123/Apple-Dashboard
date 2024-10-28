@@ -9,9 +9,9 @@ import { DashOutlined, DeleteOutlined, EditOutlined } from '@ant-design/icons';
 
 function Organization() {
 	const [tBodyData, setTBodyData] = useState([])
-	const [searchData, setSearchData] = useState("")
 	const [isLoading, setIsLoading] = useState(false)
 	const [refresh, setRefresh] = useState(false)
+
 	const tHeadData = [
 		{
 			title: 'ID',
@@ -40,7 +40,8 @@ function Organization() {
 		},
 	];
 
-	// start part start 
+	// search part start 
+	const [searchData, setSearchData] = useState("")
 	function handleSearchOrganization(e) {
 		setIsLoading(true)
 		setSearchData(e.target.value.toLowerCase())
@@ -48,7 +49,9 @@ function Organization() {
 			setTimeout(() => setRefresh(!refresh), 1000)
 		}
 	}
+
 	const searchByName = useDebounce(searchData, 1000)
+
 	useEffect(() => {
 		if(searchByName){
 			setIsLoading(false)
@@ -56,12 +59,12 @@ function Organization() {
 			setSearchData(filteredData)
 		}
 	}, [searchByName])
-	// start part end
+	// search part end
 
 	// axios get all start
 	useEffect(() => {
 		axios(`${HTTP}/organization`).then(res => {
-			setIsLoading(false)
+			setIsLoading(false)	
 			setTBodyData(res.data.map(item => {
 				item.action = <div className="flex items-center gap-[22px]">
 					<EditOutlined className='scale-[1.2] hover:scale-[1.5] duration-500 cursor-pointer hover:text-blue-600'/>
@@ -72,7 +75,7 @@ function Organization() {
 				return item
 			}))
 		})
-	},[refresh])
+	}, [refresh])
 	// axios get all end
 
 	return (
