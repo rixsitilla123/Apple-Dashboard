@@ -52,12 +52,13 @@ function Organization() {
 			setTimeout(() => setRefresh(!refresh), 1000)
 		}
 	}
+
 	const searchByName = useDebounce(searchData, 1000)
 	useEffect(() => {
 		if (searchByName) {
 			setIsLoading(false)
 			const filteredData = tBodyData.filter(item => item.name.toLowerCase().includes(searchByName))
-			setSearchData(filteredData)
+			setTBodyData(filteredData)
 		}
 	}, [searchByName])
 	// search part end
