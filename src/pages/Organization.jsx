@@ -52,7 +52,6 @@ function Organization() {
 			setTimeout(() => setRefresh(!refresh), 1000)
 		}
 	}
-
 	const searchByName = useDebounce(searchData, 1000)
 	useEffect(() => {
 		if (searchByName) {
