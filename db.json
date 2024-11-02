@@ -1,71 +1,47 @@
 {
-  "organization": [
+  "users": [
     {
-      "key": "1",
-      "id": "1",
-      "name": "Najot Talim",
-      "inn": "123456789",
-      "director": "Ali Zairov",
-      "createdAt": "2018-05-13",
-      "address": "Toshkent shahar",
-      "status": "true"
-    },
-    {
-      "key": "2",
-      "id": "2",
-      "name": "Cambridge",
-      "inn": "987654321",
-      "director": "person",
-      "createdAt": "2014-07-12",
-      "address": "Toshkent shahar",
-      "status": "true"
-    },
-    {
-      "id": "7522",
-      "name": "RN",
-      "inn": "484848488",
-      "director": "Rixsitilla Nosirov",
-      "address": "toshkent shahar",
-      "status": true,
-      "createdAt": "2024-10-10"
-    },
-    {
-      "id": "fb88",
-      "name": "asdsada",
-      "inn": "231312331",
-      "director": "asdasdadas",
-      "address": "asadasdasd",
-      "status": true,
-      "createdAt": "2024-10-03"
-    },
-    {
-      "id": "68b8",
-      "name": "asdasdasd",
-      "inn": "213467543",
-      "director": "ASAs",
-      "address": "dasdadd",
-      "status": false,
-      "createdAt": "2024-10-08"
-    },
-    {
-      "id": "c643",
-      "name": "asasdadad",
-      "inn": "2324312",
-      "director": "ASs",
-      "address": "123132RQWAS",
-      "status": true,
-      "createdAt": "2024-10-09"
-    },
-    {
-      "id": "1a2d",
-      "name": "adsadaa",
-      "inn": "1231345332",
-      "director": "sASasSdvdsfds",
-      "address": "qwadssdfsf",
-      "status": true,
-      "createdAt": "2023-04-03"
+      "username": "Rixsitilla",
+      "password": "123",
+      "id": "4315"
     }
   ],
-  "administration": [],
-  "students": []
+  "organization": [
+    {
+      "id": "0c69",
+      "name": "RN",
+      "inn": "123456789",
+      "director": "Rixsitilla",
+      "address": "toshkent",
+      "status": true,
+      "createdAt": "2024-11-11"
+    },
+    {
+      "id": "156d",
+      "name": "najot talim",
+      "inn": "12345678",
+      "director": "asdadsaa",
+      "address": "adadasd",
+      "status": true,
+      "createdAt": "2024-11-02"
+    },
+    {
+      "id": "2ebb",
+      "name": "nosirov",
+      "inn": "12312313",
+      "director": "adasd",
+      "address": "asdasdad",
+      "status": true,
+      "createdAt": "2024-11-02"
+    },
+    {
+      "id": "3271",
+      "name": "Laptop",
+      "inn": "1234567",
+      "director": "asdad",
+      "address": "adsasda",
+      "status": true,
+      "createdAt": "2024-11-02"
+    }
+  ]
 }

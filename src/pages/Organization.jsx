@@ -89,18 +89,27 @@ function Organization() {
 	}
 	// delete part end
 
+	// Switch change part start 
+	function handleChangeSwitch(item, evt) {
+		item.status = evt
+		useAxios().put(`/organization/${item.id}`, item).then(res => {
+			setRefresh(!refresh)
+		})
+	}
+	// Switch change part end
+
 	// axios get all start
 	useEffect(() => {
 		useAxios().get(`/organization?id=${innId ? innId : ""}`).then(res => {
 			setIsLoading(false)
 			setTBodyData(res.data.map((item, index) => {
 				item.action = <div className="flex items-center gap-[22px]">
-					<EditOutlined className='scale-[1.2] hover:scale-[1.5] duration-500 cursor-pointer hover:text-blue-600' />
+					<EditOutlined onClick={() => navigate(`/edit/${item.id}`)} className='scale-[1.2] hover:scale-[1.5] duration-500 cursor-pointer hover:text-blue-600' />
 					<DeleteOutlined onClick={() => handleDelete(item.id)} className='scale-[1.2] hover:scale-[1.5] duration-500 cursor-pointer hover:text-red-600' />
 					<DashOutlined onClick={() => navigate(`${item.id}`)} className='scale-[1.2] hover:scale-[1.5] duration-500 cursor-pointer hover:text-green-600' />
 				</div>
 				item.key = index + 1
-				item.status = <Switch size='small' defaultChecked={JSON.parse(item.status)} />
+				item.status = <Switch size='small' onChange={(evt) => handleChangeSwitch(item, evt)} checked={item.status} />
 				return item
 			}))
 		})
